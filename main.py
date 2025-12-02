@@ -1,31 +1,31 @@
 import random
 Welcome_message = "halo fikri"
-angka_boom = random.randint(1,10)
+musang = random.randint(1,5)
 print(f"{Welcome_message} selamat datang  di program pyhton")
 
 nama_saya = input("siapa kamu: ")
 
-if nama_saya == "fikri":
-    print("halo fikri")
-
-password = int(input("masukan password:"))
-
-if password == 15:
-    print("benar")
-else:
-    print("salah")
+print(f"halo {nama_saya}")
     
-    
-    
-    
-    
-print(f''' halo {nama_saya} coba tebak angka boom
-1,2,3,4,5,6,7,8,9,10''')
+bentuk_lubang = "|_|"
+lubang_kosong = [bentuk_lubang]* 5
+lubang = lubang_kosong.copy()
+lubang[musang -1] = "|0_0|"
+print(f'''coba tebak musang ada di lobang nomor berapa?{lubang_kosong}''')
+      
 
 while True:
-    pilihan_user = int(input("menurtumu mana angka boomnya?"))
-    if pilihan_user == (angka_boom):
-     print("benar")
-     break
-else:
-    print(f"salah angka boomnya adalah {angka_boom}")
+    pilihan_user = int(input("menurtumu di luang mana musang itu berada? (1-5): "))
+    confirm_user = input(f"apakah kamu yakin kalo {pilihan_user} jawabannya? (y/n):")
+    if confirm_user == 'n':
+        print("oke coba tebak lagi yaa")
+        exit()
+    elif confirm_user == 'y':
+        if pilihan_user == (musang):
+            print(f"benar sekali {nama_saya}, musang ada di lubang nomor {musang} \n {lubang}")
+            break
+        else:
+            print(f"salah yaa {nama_saya}, musang ada di lubang nomor {musang} \n {lubang}")
+    else:
+        print("input tidak valid, program dihentikan")
+        exit()
